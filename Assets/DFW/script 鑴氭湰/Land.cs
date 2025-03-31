@@ -3,7 +3,23 @@ using UnityEngine;
 using TMPro;
 
 // 地块类型
-public enum LandType { Normal, Free Parking, Event, Start, Jail, Pot Luck, Opportunity Knocks, Tax, Station, Utilities, Community }
+public enum LandType 
+{ 
+    Normal, 
+    FreeParking,  // 改 free parking 为 FreeParking
+    Event, 
+    Start, 
+    Jail, 
+    PotLuck,      // 改 Pot Luck 为 PotLuck
+    Opportunity, 
+    Tax, 
+    Station, 
+    Utilities, 
+    Community,
+    Commercial,   // 添加缺少的枚举值
+    Hospital,     // 添加缺少的枚举值
+     Chance        // 添加缺少的枚举值
+}
 
 public class Land : MonoBehaviour
 {
@@ -80,7 +96,7 @@ public class Land : MonoBehaviour
     // 当玩家停留在地块上时触发
     public void OnPlayerLanded(int playerIndex)
     {
-        Debug.Log($"玩家{playerIndex}落在地块{landName}上，类型:{landType}，是否可购买:{canBePurchased}");
+        DebugLog("OnPlayerLanded", $"玩家{playerIndex}落在地块{landName}上，类型:{landType}");
         
         // 判断是否是AI (在TurnManager中玩家通常是索引0)
         bool isAI = playerIndex > 0;
@@ -404,5 +420,10 @@ public class Land : MonoBehaviour
             }
         }
         // 其他情况不需要UI交互
+    }
+
+    private void DebugLog(string methodName, string message)
+    {
+        Debug.Log($"[Land] [{methodName}] {message}");
     }
 }
