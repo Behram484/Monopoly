@@ -3,7 +3,7 @@ using UnityEngine;
 using TMPro;
 
 // 地块类型
-public enum LandType { Normal, Commercial, Event, Start, Jail, Hospital, Chance, Tax, Station, Utilities, Community }
+public enum LandType { Normal, Free Parking, Event, Start, Jail, Pot Luck, Opportunity Knocks, Tax, Station, Utilities, Community }
 
 public class Land : MonoBehaviour
 {
